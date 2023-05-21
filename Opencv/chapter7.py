@@ -36,17 +36,43 @@ def stackImages(imgArray,scale,lables=[]):
                 cv2.rectangle(ver,(c*eachImgWidth,eachImgHeight*d),(c*eachImgWidth+len(lables[d][c])*13+27,30+eachImgHeight*d),(255,255,255),cv2.FILLED)
                 cv2.putText(ver,lables[d][c],(eachImgWidth*c+10,eachImgHeight*d+20),cv2.FONT_HERSHEY_COMPLEX,0.7,(255,0,255),2)
     return ver
+def empty(a):
+    pass
 
-img = cv2.imread('Resources/lena.png')
+path = 'Resources/lambo.PNG'
 
-# imgHor = np.hstack((img, img))
-# imgVer = np.vstack((img, img))
-#
-# cv2.imshow("Horizontal", imgHor)
-# cv2.imshow("Verical", imgVer)
+cv2.namedWindow("TrackBars")
+cv2.resizeWindow("TrackBars",  640, 240)
+cv2.createTrackbar("Hue Min", "TrackBars", 0, 179, empty)
+cv2.createTrackbar("Hue Max", "TrackBars", 19, 179, empty)
+cv2.createTrackbar("Sat Min", "TrackBars", 110, 255, empty)
+cv2.createTrackbar("Sat Max", "TrackBars", 240, 255, empty)
+cv2.createTrackbar("Val Min", "TrackBars", 150, 255, empty)
+cv2.createTrackbar("Val Max", "TrackBars", 255, 255, empty)
 
-imgStack = stackImages(([img, img, img], [img, img, img]), 0.5)
+while True:
+    img = cv2.imread(path)
+    imgHSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    h_min = cv2.getTrackbarPos("Hue Min", "TrackBars")
+    h_max = cv2.getTrackbarPos("Hue Max", "TrackBars")
+    s_min = cv2.getTrackbarPos("Sat Min", "TrackBars")
+    s_max = cv2.getTrackbarPos("Sat Max", "TrackBars")
+    v_min = cv2.getTrackbarPos("Val Min", "TrackBars")
+    v_max = cv2.getTrackbarPos("Val Max", "TrackBars")
+    print(h_min, h_max, s_min, s_max, v_min, v_max)
+    lower = np.array([h_min, s_min, v_min])
+    upper = np.array([h_max, s_max, v_max])
+    mask = cv2.inRange(imgHSV, lower, upper)
+    imgResult = cv2.bitwise_and(img, img, mask=mask)
 
-cv2.imshow("Stack Images", imgStack)
+    imgStack = stackImages(([img, imgHSV], [mask, imgResult]), 0.6)
 
-cv2.waitKey(0)
+    # cv2.imshow("Original", img)
+    # cv2.imshow("HSV", imgHSV)
+    # cv2.imshow("Mask", mask)
+    # cv2.imshow("Result", imgResult)
+
+    cv2.imshow("Stack Images", imgStack)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
