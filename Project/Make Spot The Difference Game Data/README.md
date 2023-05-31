@@ -1,7 +1,7 @@
 # Make-Spot-The-Difference-Game-Data
 Level 1:
 
-![image](https://github.com/CUNGVANTHANG/Make-Spot-The-Difference-Game-Data/assets/96326479/6f9f4cd3-f183-4181-9b03-fea18c4ab054)
+![image](https://github.com/CUNGVANTHANG/Python/assets/96326479/5d2cd05b-a755-4873-9cfb-31b422a76404)
 ![image](https://github.com/CUNGVANTHANG/Make-Spot-The-Difference-Game-Data/assets/96326479/d58c0e6f-3067-466a-80cc-edefeff1d9b2)
 
 Level 2:
