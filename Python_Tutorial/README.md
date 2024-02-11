@@ -4,14 +4,32 @@
 <details>
   <summary>I. Biến và các kiểu dữ liệu cơ bản</summary>
 
-  - [1. Nhập giá trị từ bàn phím](#1-nhập-giá-trị-từ-bàn-phím)
+  - [1. In kết quả]
+  - [2. Nhập giá trị từ bàn phím](#1-nhập-giá-trị-từ-bàn-phím)
 </details>
 
 ## I. Biến và các kiểu dữ liệu cơ bản
-### 1. Nhập giá trị từ bàn phím `input`
+### 1. In kết quả `print`
 [:arrow_up: Mục lục](#mục-lục)
 
-**Cú pháp:**
+`print("Kết quả")` in `Kết quả` xong đó **xuống dòng**
+
+`print("Kết quả", end="")` in `Kết quả` xong đó **không xuống dòng**
+
+`print(12, 33)` in nhiều biến hoặc giá trị cách nhau bằng dấu phẩy `,`
+
+`print("Hello " + "World!")` in nối chuỗi (Chú ý toán tử `+` không thể sử dụng với chuỗi + số)
+
+`print("Giá trị của x là:", x)` in chuỗi với số (format)
+
+`print(f"Giá trị của x là: {x}")` in chuỗi với số dạng chuỗi (format string)
+
+`print(f"Giá trị của x là: {x:.2f}")` in số dạng chuỗi (format string) làm tròn x đến 2 chữ số thập phân
+
+### 2. Nhập giá trị từ bàn phím `input`
+[:arrow_up: Mục lục](#mục-lục)
+
+**a. Cú pháp nhập chuỗi ký tự từ bàn phím:** `prompt` là chuỗi ký tự mà chúng ta muốn hiển thị lên trên màn hình.
 
 ```python
 input([prompt])
@@ -31,14 +49,36 @@ Nhập một số nguyên: 200
 200
 ```
 
-### 2. Kiểu dữ liệu số `type, isinstance`
+**b. Cú pháp nhập một số từ bàn phím:** `prompt` là chuỗi ký tự mà chúng ta muốn hiển thị lên trên màn hình.
+
+```python
+int(input([prompt]))
+```
+
+_Ví dụ:_
+
+```python
+a = int(input('Nhập một số nguyên: '))
+print(a + 5)
+```
+
+_Kết quả:_
+
+```
+Nhập một số nguyên: 50
+55
+```
+
+### 3. Các kiểu dữ liệu trong Python `type, isinstance, eval`
 [:arrow_up: Mục lục](#mục-lục)
 
-Trong Python có 3 lớp `int`, `float` và `complex` (`a + bj`)
+**Các kiểu dữ liệu trong Python:**
+
+`int`, `float`, `bool`, `str`, `list`, `set`, `dict`, `tuple`
 
 Phương thức `type([variable hoặc object])` để biết biến hoặc một đối tượng thuộc lớp nào
 
-Phương thức `isinstance([variable hoặc object], [int, float và complex])` để kiểm tra xem một biến hoặc đối tượng có thuộc một lớp cụ thể nào hay không.
+Phương thức `isinstance([variable hoặc object], [int, float, complex...])` để kiểm tra xem một biến hoặc đối tượng có thuộc một lớp cụ thể nào hay không.
 
 _Ví dụ:_
 
@@ -60,6 +100,49 @@ _Kết quả:_
 True
 ```
 
+**Ép kiểu dữ liệu trong Python:**
+
+**Cách 1:**
+
+> <kiểu dữ liệu>(biểu thức)
+
+_Ví dụ:_
+
+```python
+a = 100
+b = float("200.5")
+print(type(a))
+print(type(b))
+print(a+b)
+```
+
+_Kết quả:_
+
+```
+<class 'int'>
+<class 'float'>
+300.5
+```
+
+**Cách 2:** Sử dụng hàm `eval()` để ép kiểu số nguyên `int`
+
+_Ví dụ:_
+
+```python
+print(eval('100 + 200'))
+```
+
+_Kết quả:_
+
+```
+300
+```
+
+### 4. Kiểu dữ liệu số `int, float, complex` 
+[:arrow_up: Mục lục](#mục-lục)
+
+Trong Python có 3 lớp `int`, `float` và `complex` (`a + bj`)
+
 | Toán tử	 | Mô tả | Cú pháp | Ví dụ |
 | :--: | :--: | :--: | :--: |
 | `+` |	Thực hiện phép cộng cho các toán hạng. |	a + b + 100	| 100+200=300 |
@@ -70,7 +153,33 @@ True
 | `//` |	Phép chia làm tròn dưới (chia nguyên) |	a // b	| 8//5=1 |
 | `**` |	Số mũ.	| a**b (a mũ b)	| 2**3=8 |
 
-### 3. Kiểu dữ liệu chuỗi ký tự
+_Chú ý:_ Không thể sử dụng toán tử `+` để nối chuỗi với số (Bởi Python không cho phép cộng một chuỗi ký tự và một số)
+
+Ví dụ:
+
+```python
+print("Kết quả là" + 5)
+```
+
+Kết quả:
+
+```
+TypeError: can only concatenate str (not "int") to str
+```
+
+Khắc phục: Sử dụng dấu `,` thay bằng toán tử `+`. Chú ý hàm `print()` sẽ tự động thêm vào một khoảng trắng với mỗi một tham số mới sau dấu phẩy `,`)
+
+```python
+print("Kết quả =",5)
+```
+
+Kết quả:
+
+```
+Kết quả = 5
+```
+
+### 5. Kiểu dữ liệu chuỗi ký tự `str`
 [:arrow_up: Mục lục](#mục-lục)
 
 | Toán tử | Tác dụng |
