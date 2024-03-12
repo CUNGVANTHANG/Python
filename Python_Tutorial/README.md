@@ -4,8 +4,8 @@
 <details>
   <summary>I. Biến và các kiểu dữ liệu cơ bản</summary>
 
-  - [1. In kết quả]
-  - [2. Nhập giá trị từ bàn phím](#1-nhập-giá-trị-từ-bàn-phím)
+  - [1. In kết quả](#1-in-kết-quả-print)
+  - [2. Nhập giá trị từ bàn phím](#2-nhập-giá-trị-từ-bàn-phím-input)
 </details>
 
 ## I. Biến và các kiểu dữ liệu cơ bản
@@ -179,6 +179,17 @@ Kết quả:
 Kết quả = 5
 ```
 
+_Trường hợp có thể sẽ gặp:_ 
+
+```python
+print(0.1+0.2) # 0.30000000000000004
+tolerance = 0.00001
+x = 0.1 + 0.2
+print(abs(x - 0.3) < tolerance)
+```
+
+Hàm `abs()` trả về giá trị tuyệt đối. Nếu giá trị tuyệt đối của hiệu số giữa hai số nhỏ hơn một mức sai số `tolerance` quy định chấp nhận được, tức là chúng đủ gần bằng nhau để được coi là bằng nhau.
+
 ### 5. Kiểu dữ liệu chuỗi ký tự `str`
 [:arrow_up: Mục lục](#mục-lục)
 
@@ -200,3 +211,18 @@ _Kết quả:_
 Hello World
 aaaa
 ```
+
+_So sánh chuỗi:_
+
+```python
+print("abc" == "abc") # True
+```
+
+### 6. Toán tử logic
+[:arrow_up: Mục lục](#mục-lục)
+
+| Toán tử	 | Mô tả | Ví dụ |
+| :--: | :--: | :--: |
+| `and` |	Trả về giá trị `True` nếu cả 2 toán hạng đều đúng. |	`a and b` |
+| `or` |	Trả về giá trị `True` nếu 1 trong 2 toán hạng là đúng. |	`a or b` |
+| `not` |	Trả về giá trị `True` nếu toán hạng là sai. |	`not a` |
