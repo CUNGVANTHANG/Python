@@ -4,9 +4,38 @@
 <details>
   <summary>I. Biến và các kiểu dữ liệu cơ bản</summary>
 
-  - [1. In kết quả](#1-in-kết-quả-print)
-  - [2. Nhập giá trị từ bàn phím](#2-nhập-giá-trị-từ-bàn-phím-input)
+
+- [Python Tutorial](#python-tutorial)
+  - [Mục lục](#mục-lục)
+  - [I. Biến và các kiểu dữ liệu cơ bản](#i-biến-và-các-kiểu-dữ-liệu-cơ-bản)
+    - [1. In kết quả `print`](#1-in-kết-quả-print)
+    - [2. Nhập giá trị từ bàn phím `input`](#2-nhập-giá-trị-từ-bàn-phím-input)
+    - [3. Các kiểu dữ liệu trong Python `type, isinstance, eval`](#3-các-kiểu-dữ-liệu-trong-python-type-isinstance-eval)
+    - [4. Kiểu dữ liệu số `int, float, complex`](#4-kiểu-dữ-liệu-số-int-float-complex)
+    - [5. Kiểu dữ liệu chuỗi ký tự `str`](#5-kiểu-dữ-liệu-chuỗi-ký-tự-str)
+  - [II. Cấu trúc điều kiện](#ii-cấu-trúc-điều-kiện)
+    - [1. Toán tử logic](#1-toán-tử-logic)
+    - [2. Cấu trúc rẽ nhánh if else](#2-cấu-trúc-rẽ-nhánh-if-else)
+  - [III. Kiểu dữ liệu danh sách List](#iii-kiểu-dữ-liệu-danh-sách-list)
+    - [1. Kiểu dữ liệu List](#1-kiểu-dữ-liệu-list)
+    - [2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
+  
 </details>
+
+<details>
+  <summary>II. Cấu trúc điều kiện</summary>
+
+   - [1. Toán tử logic](#1-toán-tử-logic)
+   - [2. Cấu trúc rẽ nhánh if else](#2-cấu-trúc-rẽ-nhánh-if-else)
+</details>
+
+<details>
+  <summary>III. Kiểu dữ liệu danh sách List</summary>
+
+- [1. Kiểu dữ liệu List](#1-kiểu-dữ-liệu-list)
+- [2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
+</details>
+
 
 ## I. Biến và các kiểu dữ liệu cơ bản
 ### 1. In kết quả `print`
@@ -218,7 +247,10 @@ _So sánh chuỗi:_
 print("abc" == "abc") # True
 ```
 
-### 6. Toán tử logic
+## II. Cấu trúc điều kiện
+[:arrow_up: Mục lục](#mục-lục)
+
+### 1. Toán tử logic
 [:arrow_up: Mục lục](#mục-lục)
 
 | Toán tử	 | Mô tả | Ví dụ |
@@ -226,3 +258,85 @@ print("abc" == "abc") # True
 | `and` |	Trả về giá trị `True` nếu cả 2 toán hạng đều đúng. |	`a and b` |
 | `or` |	Trả về giá trị `True` nếu 1 trong 2 toán hạng là đúng. |	`a or b` |
 | `not` |	Trả về giá trị `True` nếu toán hạng là sai. |	`not a` |
+
+### 2. Cấu trúc rẽ nhánh if else
+[:arrow_up: Mục lục](#mục-lục)
+
+```python
+if điều_kiện1:
+    Đoạn mã 1 #Thụt dòng!!!
+elif điều_kiện2:
+    Đoạn mã 2  #Thụt dòng!!!
+else:
+    Đoạn mã 3  #Thụt dòng!!!
+```
+
+## III. Kiểu dữ liệu danh sách List
+[:arrow_up: Mục lục](#mục-lục)
+
+### 1. Kiểu dữ liệu List
+[:arrow_up: Mục lục](#mục-lục)
+
+- **Định nghĩa:**
+
+Kiểu dữ liệu danh sách List trong Python là **tập hợp dữ liệu gồm nhiều đối tượng dữ liệu**. Trong đó các đối tượng này có thể có kiểu khác nhau, chúng có thể là các **chuỗi ký tự, số nguyên, boolean, thậm chí là các danh sách khác**.
+
+Chúng ta có thể tạo `list` trong Python bằng một trong hai cách:
+
+- Sử dụng hàm tạo `list()`
+- Sử dụng dấu ngoặc vuông (`[]`)
+
+*Ví dụ:*
+
+```python
+my_list1 = list((1, 2, 3))
+print(my_list1) # [1, 2, 3]
+my_list2 = [1, 2, 3]
+print(my_list2) # [1, 2, 3]
+
+my_list3 = [300, "Python", 500.5]
+print(my_list3) # [300, 'Python', 500.5]
+
+my_list4 = list()
+print(my_list4) # []
+vi_du = []
+print(vi_du) # []
+```
+
+Thậm chí, **một đối tượng kiểu List** cũng có thể **là phần tử của một đối tượng kiểu List khác**. Đây được gọi là **danh sách lồng nhau**.
+
+*Ví dụ:*
+
+```python
+vi_du1 = []
+vi_du2 = [100, 100.5, 200]
+vi_du3 = [300, "Python", [500.5, 200, "Javascript"]]
+```
+
+- **Truy cập các phần tử của tập hợp List trong Python thông qua chỉ số âm**
+
+```python
+vi_du2 = ["Python", [100, 200, 300, 400]]
+print(vi_du2[-1]) # [100, 200, 300, 400]
+print(vi_du2[-2]) # Python
+```
+
+Các phần tử của List cũng có thể được truy cập theo chỉ số từ phải sang trái theo chỉ số âm. Chỉ số âm được đánh từ -1 cho đến -len của List. Nó thể hiện chỉ số theo chiều ngược của danh sách. Chỉ số -1 tham chiếu đến phần tử cuối cùng, -2 tham chiếu đến phần tử cuối cùng thứ hai,...
+
+### 2. Phương thức sử dụng List
+[:arrow_up: Mục lục](#mục-lục)
+
+- Số phần tử hay độ dài của danh sách
+
+```python
+my_list = [100, 200, "Python"]
+print(len(my_list)) # 3
+```
+
+**Đối với danh sách lồng nhau**, phần tử danh sách con bên trong cũng chỉ được coi là một phần tử của danh sách bên ngoài. Vì vậy độ dài của danh sách `vi_du3` dưới đây cũng có kết quả là `3`:
+
+```python
+vi_du3 = [300, "Python", [500.5, 200, "Javascript"]]
+print(len(vi_du3)) # 3
+```
+
