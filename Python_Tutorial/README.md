@@ -44,6 +44,25 @@
 
 `print(f"Giá trị của x là: {x:.2f}")` in số dạng chuỗi (format string) làm tròn x đến 2 chữ số thập phân
 
+**_Chú ý:_** Không sử dụng được toán tử `+` để in chuỗi cùng với số
+
+```python
+print("Số " + 3) # TypeError: can only concatenate str (not "int") to str
+```
+
+Muốn in chuỗi cùng với số thì phải dùng `,`
+
+```python
+# Chú ý là sau dấu phẩy , sẽ tự động có 1 khoảng trắng
+print("Số", 3) # Số 3
+```
+
+hoặc ta có thể convert sang chuỗi để sử dụng toán tử `+`
+
+```python
+print("Số " + str(3)) # Số 3
+```
+
 ### 2. Nhập giá trị từ bàn phím `input`
 [:arrow_up: Mục lục](#mục-lục)
 
@@ -90,7 +109,7 @@ Nhập một số nguyên: 50
 ### 3. Các kiểu dữ liệu trong Python `type, isinstance, eval`
 [:arrow_up: Mục lục](#mục-lục)
 
-**Các kiểu dữ liệu trong Python:**
+- **Các kiểu dữ liệu trong Python:**
 
 `int`, `float`, `bool`, `str`, `list`, `set`, `dict`, `tuple`
 
@@ -118,13 +137,13 @@ _Kết quả:_
 True
 ```
 
-**Ép kiểu dữ liệu trong Python:**
+- **Ép kiểu dữ liệu trong Python:**
 
 **Cách 1:**
 
 > <kiểu dữ liệu>(biểu thức)
 
-_Ví dụ:_
+_Ví dụ 1:_
 
 ```python
 a = 100
@@ -140,6 +159,19 @@ _Kết quả:_
 <class 'int'>
 <class 'float'>
 300.5
+```
+
+_Ví dụ 2:_
+
+```python
+number = 3
+print("Số " + str(number))
+```
+
+_Kết quả:_
+
+```
+Số 3
 ```
 
 **Cách 2:** Sử dụng hàm `eval()` để ép kiểu số nguyên `int`
@@ -236,6 +268,25 @@ _So sánh chuỗi:_
 print("abc" == "abc") # True
 ```
 
+**_Chú ý:_** Không sử dụng được toán tử `+` để in chuỗi cùng với số
+
+```python
+print("Số " + 3) # TypeError: can only concatenate str (not "int") to str
+```
+
+Muốn in chuỗi cùng với số thì phải dùng `,`
+
+```python
+# Chú ý là sau dấu phẩy , sẽ tự động có 1 khoảng trắng
+print("Số", 3) # Số 3
+```
+
+hoặc ta có thể convert sang chuỗi để sử dụng toán tử `+`
+
+```python
+print("Số " + str(3)) # Số 3
+```
+
 ## II. Cấu trúc điều kiện
 [:arrow_up: Mục lục](#mục-lục)
 
@@ -317,7 +368,7 @@ Các phần tử của List cũng có thể được truy cập theo chỉ số 
 ### 2. Phương thức sử dụng List
 [:arrow_up: Mục lục](#mục-lục)
 
-- **Số phần tử hay độ dài của danh sách**
+- **a. Số phần tử hay độ dài của danh sách**
 
 ```python
 my_list = [100, 200, "Python"]
@@ -331,3 +382,71 @@ vi_du3 = [300, "Python", [500.5, 200, "Javascript"]]
 print(len(vi_du3)) # 3
 ```
 
+- **b. Lấy ra một danh sách con trong List (Cắt list)**
+
+```python
+listname[start_index : end_index : step]
+```
+
+- `start_index` biểu diễn giá trị của chỉ số bắt đầu của phép cắt 
+- `end_index` đại diện cho chỉ số cuối cùng của phép cắt (Các phần tử được lấy sẽ được tính từ `start_index` cho đến phần tử `end_index - 1`, không tính phần tử tại vị tri có chỉ số là `end_index`.
+- `step` cho phép chúng ta nhảy cách qua một loạt các phần tử thay vì đi từ đầu đến cuối trong khoảng `start_index:end_index`. Chỉ số này có thể được bỏ qua khi sử dụng. Khi đó, Python sẽ mặc định bước nhảy là `1`.
+
+_Ví dụ 1:_ Không sử dụng `step`
+
+```python
+vi_du2 = [50, 100, 200, 300, 400]
+print(vi_du2[0:2])
+print(vi_du2[1:3])
+```
+
+_Kết quả:_
+
+```
+[50, 100]
+[100, 200]
+```
+
+_Ví dụ 2:_ Sử dụng `step`
+
+```python
+vidu_list=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(vidu_list[2:6:2])
+print(vidu_list[0:8:3])
+```
+
+_Kết quả:_
+
+```
+[2, 4]
+[0, 3, 6]
+```
+
+_Ví dụ 3:_
+
+```python
+vidu_list=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(vidu_list[:5:2]) # Bỏ trống chỉ số đầu, bước nhảy dương
+print(vidu_list[:5:-2]) # Bỏ trống chỉ số đầu, bước nhảy âm
+print(vidu_list[5::2]) # Bỏ trống chỉ số cuối, bước nhảy dương
+print(vidu_list[5::-2]) # Bỏ trống chỉ số cuối, bước nhảy âm
+print(vidu_list[::2]) # Bỏ trống cả chỉ số đầu và cuối, bước nhảy dương
+print(vidu_list[::-2]) # Bỏ trống cả chỉ số đầu và cuối, bước nhảy âm
+print(vidu_list[::]) # Bỏ trống tất cả các chỉ số và bước nhảy
+print(vidu_list[:5]) # Bỏ trống chỉ số đầu và bước nhảy
+print(vidu_list[5:]) # Bỏ trống chỉ số cuối và bước nhảy
+```
+
+_Kết quả:_
+
+```
+[0, 2, 4]
+[9, 7]
+[5, 7, 9]
+[5, 3, 1]
+[0, 2, 4, 6, 8]
+[9, 7, 5, 3, 1]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[0, 1, 2, 3, 4]
+[5, 6, 7, 8, 9]
+```
