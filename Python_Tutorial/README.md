@@ -4,29 +4,18 @@
 <details>
   <summary>I. Biến và các kiểu dữ liệu cơ bản</summary>
 
-
-- [Python Tutorial](#python-tutorial)
-  - [Mục lục](#mục-lục)
-  - [I. Biến và các kiểu dữ liệu cơ bản](#i-biến-và-các-kiểu-dữ-liệu-cơ-bản)
-    - [1. In kết quả `print`](#1-in-kết-quả-print)
-    - [2. Nhập giá trị từ bàn phím `input`](#2-nhập-giá-trị-từ-bàn-phím-input)
-    - [3. Các kiểu dữ liệu trong Python `type, isinstance, eval`](#3-các-kiểu-dữ-liệu-trong-python-type-isinstance-eval)
-    - [4. Kiểu dữ liệu số `int, float, complex`](#4-kiểu-dữ-liệu-số-int-float-complex)
-    - [5. Kiểu dữ liệu chuỗi ký tự `str`](#5-kiểu-dữ-liệu-chuỗi-ký-tự-str)
-  - [II. Cấu trúc điều kiện](#ii-cấu-trúc-điều-kiện)
-    - [1. Toán tử logic](#1-toán-tử-logic)
-    - [2. Cấu trúc rẽ nhánh if else](#2-cấu-trúc-rẽ-nhánh-if-else)
-  - [III. Kiểu dữ liệu danh sách List](#iii-kiểu-dữ-liệu-danh-sách-list)
-    - [1. Kiểu dữ liệu List](#1-kiểu-dữ-liệu-list)
-    - [2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
-  
+- [1. In kết quả `print`](#1-in-kết-quả-print)
+- [2. Nhập giá trị từ bàn phím `input`](#2-nhập-giá-trị-từ-bàn-phím-input)
+- [3. Các kiểu dữ liệu trong Python `type, isinstance, eval`](#3-các-kiểu-dữ-liệu-trong-python-type-isinstance-eval)
+- [4. Kiểu dữ liệu số `int, float, complex`](#4-kiểu-dữ-liệu-số-int-float-complex)
+- [5. Kiểu dữ liệu chuỗi ký tự `str`](#5-kiểu-dữ-liệu-chuỗi-ký-tự-str)
 </details>
 
 <details>
   <summary>II. Cấu trúc điều kiện</summary>
 
-   - [1. Toán tử logic](#1-toán-tử-logic)
-   - [2. Cấu trúc rẽ nhánh if else](#2-cấu-trúc-rẽ-nhánh-if-else)
+- [1. Toán tử logic](#1-toán-tử-logic)
+- [2. Cấu trúc rẽ nhánh if else](#2-cấu-trúc-rẽ-nhánh-if-else)
 </details>
 
 <details>
@@ -323,10 +312,12 @@ print(vi_du2[-2]) # Python
 
 Các phần tử của List cũng có thể được truy cập theo chỉ số từ phải sang trái theo chỉ số âm. Chỉ số âm được đánh từ -1 cho đến -len của List. Nó thể hiện chỉ số theo chiều ngược của danh sách. Chỉ số -1 tham chiếu đến phần tử cuối cùng, -2 tham chiếu đến phần tử cuối cùng thứ hai,...
 
+<img src="https://github.com/CUNGVANTHANG/Python/assets/96326479/da0f22bd-707d-456d-a350-44271e75ea3f" width="500px">
+
 ### 2. Phương thức sử dụng List
 [:arrow_up: Mục lục](#mục-lục)
 
-- Số phần tử hay độ dài của danh sách
+- **Số phần tử hay độ dài của danh sách**
 
 ```python
 my_list = [100, 200, "Python"]
