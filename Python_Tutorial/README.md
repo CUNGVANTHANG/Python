@@ -368,7 +368,25 @@ Các phần tử của List cũng có thể được truy cập theo chỉ số 
 ### 2. Phương thức sử dụng List
 [:arrow_up: Mục lục](#mục-lục)
 
-- **a. Số phần tử hay độ dài của danh sách**
+| STT | Mô tả | Phương thức |
+| :--: | :--: | :--: |
+| 1 | [Số phần tử hay độ dài của danh sách](#a-số-phần-tử-hay-độ-dài-của-danh-sách) | `len()` |
+| 2 | [Lấy ra một danh sách con trong List](#b-lấy-ra-một-danh-sách-con-trong-list) | `listname[start_index : end_index : step]` |
+| 3 | [Thêm phần tử vào trong danh sách](#c-thêm-phần-tử-vào-trong-danh-sách) | `append()`, `insert()`, `extend()` | 
+| 4 | [Xóa các phần tử khỏi danh sách](#d-xóa-các-phần-tử-khỏi-danh-sách) | `remove(item)`, `pop(index)`, `clear()`, `del list_name` |
+| 5 | [Kiểm tra phần tử có tồn tại](#e-kiểm-tra-phần-tử-có-tồn-tại) | `in`, `not in` |
+| 6 | [Tìm một phần tử trong danh sách](#f-tìm-một-phần-tử-trong-danh-sách) | `index()` |
+| 7 | [Sắp xếp danh sách](#g-sắp-xếp-danh-sách) | `sort()` |
+| 8 | [Đảo ngược danh sách](#h-đảo-ngược-danh-sách) | `reverse()` |
+| 9 | [Tìm giá trị lớn nhất và nhỏ nhất trong danh sách](#i-tìm-giá-trị-lớn-nhất-và-nhỏ-nhất-trong-danh-sách) | `max()`, `min()` |
+| 10 | [Tính tổng các phần tử có trong danh sách](#j-tính-tổng-các-phần-tử-có-trong-danh-sách) | `sum()` |
+| 11 | [Đếm số lần phần tử xuất hiện](#k-đếm-số-lần-phần-tử-xuất-hiện) | `count()` | 
+| 12 | [Nối các danh sách](#l-nối-các-danh-sách) | `+`, `extend()` |
+| 13 | [Sao chép danh sách](#m-sao-chép-danh-sách) | `=`, `copy()` |
+| 14 | [Kiểm tra tất cả giá trị trong danh sách](#n-kiểm-tra-tất-cả-giá-trị-trong-danh-sách) | `all()` |
+| 15 | [Kiểm tra giá trị trong danh sách](#o-kiểm-tra-giá-trị-trong-danh-sách) |  `any()` |
+
+#### a. Số phần tử hay độ dài của danh sách
 
 ```python
 my_list = [100, 200, "Python"]
@@ -382,7 +400,7 @@ vi_du3 = [300, "Python", [500.5, 200, "Javascript"]]
 print(len(vi_du3)) # 3
 ```
 
-- **b. Lấy ra một danh sách con trong List (Cắt list)**
+#### b. Lấy ra một danh sách con trong List
 
 ```python
 listname[start_index : end_index : step]
@@ -450,3 +468,124 @@ _Kết quả:_
 [0, 1, 2, 3, 4]
 [5, 6, 7, 8, 9]
 ```
+
+#### c. Thêm phần tử vào trong danh sách
+
+| STT | Phương thức | Mô tả |
+| :--: | :--: | :--: |
+| 1 | `append()` | Thêm 1 phần tử vào cuối danh sách | 
+| 2 | `insert()` | Thêm 1 phần tử vào vị trí bất kỳ trong danh sách | 
+| 3 | `extend()` | Thêm danh sách các phần tử vào cuối danh sách |
+
+_Ví dụ 1:_ Dùng `append()` để thêm 1 phần tử vào cuối danh sách
+
+```python
+my_list = list([1, 2, 'abc', 12.13])
+my_list.append('Python')
+print(my_list) # [1, 2, 'abc', 12.13, 'Python']
+my_list.append([11, 12, 13])
+print(my_list) # [1, 2, 'abc', 12.13, 'Python', [11, 12, 13]]
+```
+
+_Ví dụ 2:_ Dùng `insert()` để thêm 1 phần tử vào vị trí bất kỳ trong danh sách
+
+Syntax:
+
+```python
+object.insert(position,value)
+```
+
+Nó sẽ chèn giá trị `value` vào đối tượng `object` tại chỉ số được chỉ định là `position`.
+
+```python
+my_list = [1, 2, 'abc', 1.2]
+my_list.insert(3, 5)
+print(my_list) # [1, 2, 'abc', 5, 1.2]
+my_list.insert(4, [11, 12, 13])
+print(my_list) # [1, 2, 'abc', 5, [11, 12, 13], 1.2]
+```
+
+_Ví dụ 3:_ Dùng `extend()` để thêm danh sách các phần tử vào cuối danh sách (khác với `append()`)
+
+```python
+my_list = list([1, 2, 'abc', 4.5])
+my_list.extend([11, 12, 13])
+print(my_list) # [1, 2, 'abc', 4.5, 11, 12, 13]
+```
+
+#### d. Xóa các phần tử khỏi danh sách
+
+| STT | Phương thức | Mô tả |
+| :--: | :--: | :--: |
+| 1 | `remove(item)` | Loại bỏ 1 phần tử có giá trị nào đó tại vị trí lần đầu tiên nó xuất hiện. |
+| 2 | `pop(index)` |	Loại bỏ và trả về giá trị của phần tử tại vị trí index trong danh sách. |
+| 3 | `clear()` |	Loại bỏ toàn bộ phần tử khỏi danh sách. Đầu ra sẽ là danh sách rỗng. |
+| 4 | `del list_name` |	Xóa nhiều phần tử trong danh sách. |
+
+_Ví dụ 1:_ Dùng `pop()` xóa phần tử tại một vị trí được chỉ định trong danh sách
+
+```python
+my_list = list([2, 4, 6, 8, 10, 12])
+my_list.pop(2)
+print(my_list) # [2, 4, 8, 10, 12]
+my_list.pop()
+print(my_list) # [2, 4, 8, 10]
+```
+
+_Ví dụ 2:_ Dùng `del list_name` xóa nhiều phần tử trong danh sách
+
+```python
+my_list = list([2, 4, 6, 8, 10, 12])
+del my_list[2:5]
+print(my_list) # [2, 4, 12]
+my_list = list([1, 2, 3, 4, 5, 6])
+del my_list[3:]
+print(my_list) # [1, 2, 3]
+```
+
+hoặc dùng để xóa toàn bộ danh sách
+
+```python
+my_list = list([1, 2, 3, 4, 5, 6])
+del my_list
+print(my_list) # NameError: name 'my_list' is not defined
+```
+
+_Ví dụ 3:_ Dùng `clear()` xóa toàn bộ danh sách
+
+```python
+my_list = list([1, 2, 3, 4, 5, 6])
+my_list.clear()
+print(my_list) # []
+```
+
+_Ví dụ 4:_ Dùng `remove` để xóa 1 lần xuất hiện đầu tiên của phần tử ra khỏi danh sách
+
+```python
+my_list = list([2, 4, 6, 8, 6, 10, 12])
+my_list.remove(6)
+my_list.remove(8)
+print(my_list) # [2, 4, 6, 10, 12]
+```
+
+#### e. Kiểm tra phần tử có tồn tại
+
+#### f. Tìm một phần tử trong danh sách
+
+#### g. Sắp xếp danh sách
+
+#### h. Đảo ngược danh sách
+
+#### i. Tìm giá trị lớn nhất và nhỏ nhất trong danh sách
+
+#### j. Tính tổng các phần tử có trong danh sách
+
+#### k. Đếm số lần phần tử xuất hiện
+
+#### l. Nối các danh sách
+
+#### m. Sao chép danh sách
+
+#### n. Kiểm tra tất cả giá trị trong danh sách
+
+#### o. Kiểm tra giá trị trong danh sách
