@@ -402,6 +402,7 @@ print(len(vi_du3)) # 3
 ```
 
 #### b. Lấy ra một danh sách con trong List
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
 ```python
 listname[start_index : end_index : step]
@@ -471,6 +472,7 @@ _Kết quả:_
 ```
 
 #### c. Thêm phần tử vào trong danh sách
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
 | STT | Phương thức | Mô tả |
 | :--: | :--: | :--: |
@@ -515,6 +517,7 @@ print(my_list) # [1, 2, 'abc', 4.5, 11, 12, 13]
 ```
 
 #### d. Xóa các phần tử khỏi danh sách
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
 | STT | Phương thức | Mô tả |
 | :--: | :--: | :--: |
@@ -570,25 +573,45 @@ print(my_list) # [2, 4, 6, 10, 12]
 ```
 
 #### e. Kiểm tra phần tử có tồn tại
-
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
 
 #### f. Tìm một phần tử trong danh sách
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
+
 
 #### g. Sắp xếp danh sách
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
+
 
 #### h. Đảo ngược danh sách
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
+
 
 #### i. Tìm giá trị lớn nhất và nhỏ nhất trong danh sách
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
+
 
 #### j. Tính tổng các phần tử có trong danh sách
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
+
 
 #### k. Đếm số lần phần tử xuất hiện
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
+
 
 #### l. Nối các danh sách
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
+
 
 #### m. Sao chép danh sách
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
+
 
 #### n. Kiểm tra tất cả giá trị trong danh sách
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
+
 
 #### o. Kiểm tra giá trị trong danh sách
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
+
