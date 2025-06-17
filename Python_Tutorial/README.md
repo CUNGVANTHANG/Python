@@ -575,38 +575,195 @@ print(my_list) # [2, 4, 6, 10, 12]
 #### e. Kiểm tra phần tử có tồn tại
 [:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
+_Ví dụ 1:_ Kiểm tra phần tử thành viên với toán tử in và not in
+
+```python
+vi_du1 = [100, 200, 300, 400, 500, 600, 700, 800, 900]
+print(100 in vi_du1) # True
+print(1000 in vi_du1) # False
+print(800 not in vi_du1) # False
+```
+
+Trong đó:
+
+- Toán tử `in` trả về `True` nếu phần tử thuộc danh sách và `False` nếu phần tử không thuộc danh sách.
+- Toàn từ `not in` ngược lại sẽ trả về `True` nếu phần tử không thuộc danh sách và `False` nếu phần tử thuộc danh sách.
 
 #### f. Tìm một phần tử trong danh sách
 [:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
+_Ví dụ 1:_ Tìm một phần tử trong danh sách
+
+Trong nhiều trường hợp, chúng ta không chỉ muốn biết danh sách có chứa một phần tử hay không, mà còn muốn biết chính xác vị trí mà phần tử đó xuất hiện trong danh sách. Khi đó, chúng ta sẽ sử dụng phương thức `index()` để tìm ra một phần tử trong danh sách. Phương thức `index()` sẽ nhận vào giá trị của phần tử làm một tham số và trả về giá trị xuất hiện đầu tiên của phần tử hoặc trả về `ValueError` nếu phần tử không tồn tại.
+
+```python
+my_list = list([1, 2, 3, 4, 3, 5, 6])
+print(my_list.index(3)) # 2
+```
 
 #### g. Sắp xếp danh sách
 [:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
+Phương thức `sort()` được sử dụng để sắp xếp danh sách theo thứ tự giảm dần hoặc tăng dần theo giá trị của các phần tử trong danh sách đó. Cú pháp của phương thức `sort()` có dạng như sau:
+
+```python
+list.sort(key=..., reverse=...)
+```
+
+Trong đó `list` là tên của danh sách muốn thực hiện sắp xếp.
+
+Theo mặc định, `sort()` không yêu cầu bất kỳ tham số bổ sung nào. Tuy nhiên, nó có hai tham số tùy chọn mà lập trình viên có thể sử dụng, bao gồm:
+
+- `reverse`: Nếu giá trị là `True`, danh sách đã được sắp xếp sẽ bị đảo ngược (hoặc sắp xếp theo thứ tự giảm dần).
+- `key`: Là một hàm đóng có nhiệm vụ chỉ định thuộc tính sắp xếp cho các phần tử con trong mảng.
+
+Phương thức `sort()` sẽ không trả về bất kỳ giá trị nào. Nó sẽ thay đổi tập hợp kiểu danh sách ban đầu.
+
+_Ví dụ 1:_
+
+```python
+vowels = ['e', 'a', 'u', 'o', 'i']
+vowels.sort()
+print('Sorted list:', vowels)
+```
+
+_Kết quả:_
+
+```
+Sorted list: ['a', 'e', 'i', 'o', 'u']
+```
+
+Phương thức `sort()` chấp nhận tham số `reverse` để thực hiện sắp xếp theo thứ tự giảm dần.
+
+_Ví dụ 2:_
+
+```python
+vowels = ['e', 'a', 'u', 'o', 'i']
+vowels.sort(reverse=True)
+print('Sorted list (in Descending):', vowels)
+```
+
+_Kết quả:_
+
+```
+Sorted list (in Descending): ['u', 'o', 'i', 'e', 'a']
+```
 
 #### h. Đảo ngược danh sách
 [:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
+_Ví dụ 1:_ Đảo ngược danh sách
+
+```python
+mylist = [3, 4, 5, 6, 1]
+mylist.reverse()
+print(mylist)
+```
+
+_Kết quả:_
+
+```
+[1, 6, 5, 4, 3]
+```
 
 #### i. Tìm giá trị lớn nhất và nhỏ nhất trong danh sách
 [:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
+Hàm `max()` trả về giá trị lớn nhất trong danh sách, trong khi, hàm `min()` trả về giá trị nhỏ nhất trong danh sách.
+
+_Ví dụ 1:_ 
+
+```python
+mylist = [3, 4, 5, 6, 1]
+print(max(mylist))
+print(min(mylist))
+```
+
+_Kết quả:_
+
+```
+6
+1
+```
 
 #### j. Tính tổng các phần tử có trong danh sách
 [:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
+Python cung cấp hàm sum() trả về tổng của tất cả các phần tử có trong danh sách.
+
+_Ví dụ 1:_
+
+```python
+mylist = [3, 4, 5, 6, 1]
+print(sum(mylist)) # 19
+```
 
 #### k. Đếm số lần phần tử xuất hiện
 [:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
+Phương thức `count()` trả về số lần phần tử được chỉ định xuất hiện trong tập hợp danh sách. Phương thức này chỉ nhận duy nhất một tham số là phần tử cần được đếm số lần xuất hiện.
+
+```python
+vowels = ['a', 'e', 'i', 'o', 'i', 'u']
+count = vowels.count('i')
+print(count) # 2
+```
 
 #### l. Nối các danh sách
 [:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
+Việc nối hai danh sách có nghĩa là hợp nhất hai danh sách lại với nhau thành một danh sách chung tổng hợp có các phần tử là các phần tử của cả hai danh sách này. Có hai cách để làm điều đó.
+
+- Sử dụng toán tử cộng (`+`).
+- Sử dụng phương thức `extend()`. Phương thức `extend()` nối các phần tử của một danh sách vào cuối một danh sách khác. Cách này đã trình bày ở phần thêm phần tử vào danh sách ở bài trước.
+
+_Ví dụ:_
+
+```python
+my_list1 = [1, 2, 3]
+my_list2 = [4, 5, 6]
+
+my_list3 = my_list1 + my_list2
+print(my_list3) # [1, 2, 3, 4, 5, 6]
+
+my_list1.extend(my_list2)
+print(my_list1) # [1, 2, 3, 4, 5, 6]
+```
+
+Hãy chú ý, khi chúng ta sử dụng toán tử `+` thì chúng ta cần lưu danh sách tổng hợp từ phép nối vào một biến khác, còn khi sử dụng phương thức `extend()` thì kết quả của phép nối sẽ được thực hiện trực tiếp trên danh sách gọi phương thức đó.
 
 #### m. Sao chép danh sách
 [:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
+Có hai cách để tạo một bản sao của danh sách:
+
+- Sử dụng toán tử gán
+- Sử dụng phương thức `copy()`
+
+_Ví dụ 1:_ Sử dụng toán tử gán
+
+```python
+my_list1 = [1, 2, 3]
+new_list = my_list1
+
+print(new_list) # [1, 2, 3]
+my_list1.append(4)
+print(my_list1) # [1, 2, 3, 4]
+print(new_list) # [1, 2, 3, 4]
+```
+
+_Ví dụ 2:_ Sử dụng phương thức `copy()`
+
+```python
+my_list1 = [1, 2, 3]
+new_list = my_list1.copy()
+
+print(new_list) # [1, 2, 3]
+my_list1.append(4)
+
+print(my_list1) # [1, 2, 3, 4]
+print(new_list) # [1, 2, 3]
+```
 
 #### n. Kiểm tra tất cả giá trị trong danh sách
 [:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
