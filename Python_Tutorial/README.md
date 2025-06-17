@@ -387,6 +387,7 @@ Các phần tử của List cũng có thể được truy cập theo chỉ số 
 | 15 | [Kiểm tra giá trị trong danh sách](#o-kiểm-tra-giá-trị-trong-danh-sách) |  `any()` |
 
 #### a. Số phần tử hay độ dài của danh sách
+[:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
 ```python
 my_list = [100, 200, "Python"]
@@ -569,6 +570,8 @@ print(my_list) # [2, 4, 6, 10, 12]
 ```
 
 #### e. Kiểm tra phần tử có tồn tại
+
+
 
 #### f. Tìm một phần tử trong danh sách
 
