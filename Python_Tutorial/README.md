@@ -29,6 +29,8 @@
   <summary>IV. Các thao tác trên chuỗi ký tự</summary>
 
 - [1. Một số thao tác trên chuỗi ký tự trên Python](#1-một-số-thao-tác-trên-chuỗi-ký-tự-trên-python)
+- [2. Chuẩn hóa và tách, ghép chuỗi](#2-chuẩn-hóa-và-tách-ghép-chuỗi)
+- [3. Nâng cao với hàm print() trong Python](#3-nâng-cao-với-hàm-print-trong-python)
 </details>
 
 
