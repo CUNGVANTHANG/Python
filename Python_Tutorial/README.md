@@ -768,7 +768,60 @@ print(new_list) # [1, 2, 3]
 #### n. Kiểm tra tất cả giá trị trong danh sách
 [:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 
+Kiểm tra tất cả giá trị trong danh sách với `all()`
+
+Trong trường hợp của hàm `all()`, giá trị trả về sẽ là `True` khi tất cả các giá trị bên trong danh sách đều là `True`. Do đó, chúng ta có thể sử dụng 1 danh sách để lưu các giá trị đúng sai của các biểu thức, sau đó sử dụng hàm `all()` lên danh sách này. Khi đó, nó sẽ tương đương với việc chúng ta sử dụng phép toán logic `and` giữa tất cả các phần tử hay giá trị của biểu thức Boolean thuộc danh sách này.
+
+| Các giá trị có trong danh sách |  Giá trị trả về |
+| :--: | :--: |
+| Tất cả các giá trị đều đúng | True |
+| 1 hoặc nhiều giá trị False | False | 
+| Tất cả các giá trị là False | False |
+| Danh sách rỗng | True |
+
+_Ví dụ 1:_ 
+
+```python
+samplelist1 = [1,1,True]
+print(all(samplelist1)) # True
+
+samplelist2 = [0,1,True,1]
+print(all(samplelist2)) # False
+
+samplelist3 = [0,0,False]
+print(all(samplelist3)) # False
+
+samplelist4 = []
+print(all(samplelist4)) # True
+```
 
 #### o. Kiểm tra giá trị trong danh sách
 [:arrow_up: 2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
+
+Kiểm tra giá trị trong danh sách với `any()`
+
+Hàm `any()` sẽ trả về `True` nếu có ít nhất một giá trị `True`. Trong trường hợp danh sách rỗng, nó sẽ trả về `False`. Chúng ta có thể sử dụng hàm `any()` như sử dụng toán tử `or` với danh sách các biểu thức.
+
+| Các giá trị có trong danh sách |  Giá trị trả về |
+| :--: | :--: |
+| Tất cả các giá trị là True | True |
+| 1 hoặc nhiều giá trị False | True | 
+| Tất cả các giá trị là False | False |
+| Danh sách rỗng | False |
+
+_Ví dụ 1:_
+
+```python
+samplelist1 = [1,1,True]
+print(any(samplelist1)) # True
+
+samplelist2 = [0,1,True,1]
+print(any(samplelist2)) # True
+
+samplelist3 = [0,0,False]
+print(any(samplelist3)) # False
+
+samplelist4 = []
+print(any(samplelist4)) # False
+```
 
