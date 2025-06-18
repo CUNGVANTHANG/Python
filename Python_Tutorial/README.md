@@ -25,6 +25,12 @@
 - [2. Phương thức sử dụng List](#2-phương-thức-sử-dụng-list)
 </details>
 
+<details>
+  <summary>IV. Các thao tác trên chuỗi ký tự</summary>
+
+- [1. Một số thao tác trên chuỗi ký tự trên Python](#1-một-số-thao-tác-trên-chuỗi-ký-tự-trên-python)
+</details>
+
 
 ## I. Biến và các kiểu dữ liệu cơ bản
 ### 1. In kết quả `print`
@@ -825,3 +831,133 @@ samplelist4 = []
 print(any(samplelist4)) # False
 ```
 
+## IV. Các thao tác trên chuỗi ký tự
+[:arrow_up: Mục lục](#mục-lục)
+
+### 1. Một số thao tác trên chuỗi ký tự trên Python
+[:arrow_up: Mục lục](#mục-lục)
+
+**1. Chỉ số của chuỗi ký tự trong Python**
+
+Như đã biết, chuỗi ký tự là một tập hợp của các ký tự được sắp xếp theo thứ tự nhất định. Chúng ta có thể truy cập các ký tự riêng lẻ của chuỗi bằng cách sử dụng chỉ số thể hiện vị trí của ký tự đó trong chuỗi. Chỉ số đầu tiên sẽ bắt đầu từ giá trị là 0. Tức là chuỗi ký tự sẽ được đánh số từ ký tự 0, ký tự 1,...cho đến ký tự cuối cùng.
+
+Chẳng hạn với chuỗi `Python TEK4.VN!` thì chỉ số của các ký tự sẽ được đánh số như sau:
+
+![image](https://github.com/user-attachments/assets/538dc209-cc9c-4564-bc00-ef1ca21b49fb)
+
+**2. Làm thế nào để truy cập các ký tự trong một chuỗi?**
+
+Chúng ta có thể truy cập các ký tự của chuỗi thông qua các chỉ số của nó. Để làm được điều này, chúng ta chỉ cần đặt chỉ số muốn truy cập vào trong dấu ngoặc vuông (`[]`). Với lưu ý rằng CHỈ SỐ CỦA CHUỖI BẮT ĐẦU TỪ `0` !!!!
+
+_Ví dụ 1:_
+
+```python
+a = 'Python TEK4.VN!'
+print(a)
+print(a[2]) # Lấy ký tự thứ 3
+```
+
+_Kết quả:_
+
+```
+Python
+t
+```
+
+Ở ví dụ trên, chúng ta truy cập và in ra ký tự **thứ 3** trong chuỗi (lưu ý đánh **chỉ số từ 0** do đó để truy cập **ký tự thứ 3** của chuỗi, chúng ta cần đưa vào chỉ số cần truy cập là **2**).
+
+Một điều đặc biệt trong Python, đó là nó cho phép sử dụng chỉ số âm để truy cập vào phần tử của chuỗi. **Chỉ số -1** tham chiếu đến ký tự cuối cùng, **-2** tham chiếu đến phần tử cuối cùng thứ hai (tính từ phải sang),...Quy tắc về chỉ số này tương tự như quy tắc về chỉ số đối với danh sách.
+
+Chẳng hạn, chuỗi **"Python TEK4.VN!"** khi đánh chỉ số âm thì các ký tự sẽ có chỉ số như sau:
+
+![image](https://github.com/user-attachments/assets/a1b497c6-d320-46d1-9e4b-9b385bfbac3f)
+
+Bằng cách sử dụng chỉ số âm, chúng ta có thể lấy được ký tự `o` bằng cách tham chiếu đến vị trí của nó trong chuỗi với **chỉ số là -11**
+
+_Ví dụ 2:_
+
+```python
+a = 'Python TEK4.VN!'
+print(a[-11]) # Lấy ký tự vị trí -11
+```
+
+_Kết quả:_
+
+```
+o
+```
+
+**3. Cắt chuỗi và lấy chuỗi con**
+
+Chúng ta có thể truy cập nhiều phần tử trong một chuỗi ký tự (để lấy một chuỗi con) bằng cách sử dụng phép cắt chuỗi. Phép cắt chuỗi này hoạt động theo nguyên tắc tương tự như phép cắt danh sách lấy danh sách con. Để cắt chuỗi, chúng ta chỉ định vị trí bắt đầu cắt và vị trí kết thúc việc cắt, và phân tách hai vị trí này bởi dấu hai chấm `[x:y]`. Khi thực hiện việc cắt chuỗi, chỉ số đầu tiên là vị trí bắt đầu được cắt (lấy cả ký tự ứng với chỉ số này), còn chỉ số thứ hai là vị trí kết thúc cắt (không lấy ký tự tại vị trí này). Kết quả ta lấy được một chuỗi con trong khoảng tương ứng.
+
+_Ví dụ 1:_
+
+```python
+my_string = "Python is easy"
+a1=my_string[0:3] #Lấy các ký tự từ ký tự 0 tới ký tự 2
+a2=my_string[2:-2] #Lấy các ký tự từ ký tự 2 tới ký tự 11 (-3)
+print(a1) # Pyt
+print(a2) # thon is ea
+```
+
+Ở đây chúng ta lưu ý, chuỗi con được cắt ra sẽ bao gồm các ký tự từ vị trí đầu tiên đến vị trí cuối cùng (không bao gồm ký tự vị trí cuối cùng). Khi chỉ số kết thúc nhỏ hơn hoặc bằng chỉ số đầu thì chương trình vẫn không báo lỗi mà sẽ in ra chuỗi ký tự rỗng.
+
+Ngoài ra, chúng ta có thể lấy tiền tố và hậu tố của một chuỗi bằng cách bỏ qua một chỉ số trong cú pháp `string[m:n]`.
+
+_Ví dụ 2:_
+
+```python
+my_string = "Python is easy"
+print(my_string[2:]) #Lấy hậu tố của chuỗi là tất cả ký tự bắt đầu từ vị trí 2 đến hết
+print(my_string[:-1]) #Lấy tiền tố của chuỗi tất cả ký tự từ đầu cho tới trước ký tự cuối cùng (-2)
+```
+
+_Kết quả:_
+
+```
+thon is easy
+Python is eas
+```
+
+Hãy nhớ câu kinh điển "Giữ đầu bỏ đuôi".
+
+Trong đoạn mã trên:
+
+- `[2:]`: Tất cả các **ký tự từ chỉ số 2** đến chỉ số cuối cùng được lấy ra (tính từ `0` nên là **ký tự thứ 3**).
+- `[: -1]`: Tất cả văn bản trước chỉ số cuối cùng được lấy ra (bỏ đuôi nên chỉ lấy đến ký tự có chỉ số là **-2** tức là ký tự gần cuối cùng).
+- 
+Ở đây, các giá trị được bỏ cách sẽ được hiểu là không được chỉ định và sẽ lấy đến giá trị cực trị của nó có thể có.
+
+**4. Bước nhảy khi lấy chuỗi con**
+
+Phép cắt chuỗi trong Python tương tự như phép cắt danh sách còn cho phép sử dụng một tham số thứ ba bên cạnh chỉ số bắt đầu và kết thúc. Tham số này được gọi là bước nhảy (stride), thể hiện số ký tự nhảy cách khi lấy chuỗi con. Dạng tổng quát của phép cắt chuỗi như sau:
+
+```python
+string[start:end:stride]
+```
+
+Trong các ví dụ trước, chúng ta bỏ qua tham số `stride`, và khi đó Python sẽ hiểu rằng mặc định của bước nhảy là `1`, hay tất cả các ký tự giữa hai chỉ số `start` và `end` đều được lấy. Quay lại ví dụ 1, câu lệnh đầy đủ để thực hiện cùng chức năng lấy ra chuỗi con trong khoảng từ `[0,3]` sẽ là:
+
+_Ví dụ 1:_
+
+```python
+my_string = "Python is easy"
+print(my_string[2:12:2]) # to se
+print(my_string[2:12:3]) # tnsa
+```
+
+Bằng cách sử dụng giá trị bước nhảy là **2** ở tham số cuối, ta sẽ thấy rằng chuỗi con sẽ bỏ cách các ký tự xen giữa. Trong trường hợp bước nhảy là **3** thì nó sẽ **bỏ cách 3 ký tự**.
+
+Khi chúng ta chỉ muốn lấy ra các ký tự có chỉ số chẵn của chuỗi, ta có thể thực hiện:
+
+_Ví dụ 2:_
+
+```python
+my_string = "Python is easy"
+print(my_string[::2]) # Pto ses
+```
+
+**5. Đảo ngược chuỗi ký tự**
+
+Để đảo ngược một chuỗi ký tự, chúng ta có thể thực hiện một cách rất đơn giản đó là đặt tham số bước nhảy là -1:
