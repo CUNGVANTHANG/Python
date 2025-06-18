@@ -961,3 +961,157 @@ print(my_string[::2]) # Pto ses
 **5. Đảo ngược chuỗi ký tự**
 
 Để đảo ngược một chuỗi ký tự, chúng ta có thể thực hiện một cách rất đơn giản đó là đặt tham số bước nhảy là -1:
+
+_Ví dụ:_
+
+```python
+my_string = "Python is easy"
+print(my_string[::-1]) # ysae si nohtyP
+print(my_string[::-2]) # ya inhy
+```
+
+Hai tham số đầu chúng ta để trống để lấy toàn bộ chuỗi gốc, nếu bước nhảy bằng `1` thì chúng ta sẽ lấy được toàn bộ các ký tự của chuỗi mà không bỏ qua ký tự nào, và trong trường hợp bước nhảy là âm thì chuỗi ký tự ban đầu sẽ bị đảo ngược. Nếu chúng ta làm lại với bước nhảy bằng `-2`, thì việc nhảy cách vẫn diễn ra bình thường.
+
+**6. Đếm số ký tự trong chuỗi**
+
+Chúng ta có thể đếm số ký tự hoặc xác định độ dài của chuỗi ký tự tương tự như đếm số lượng phần tử trong danh sách bằng cách sử dụng hàm `len()` trong Python.
+
+_Ví dụ:_
+
+```python
+my_string = "Python is easy"
+print(len(my_string)) # 14
+```
+
+**7. Kiểm tra thành viên của một chuỗi ký tự**
+
+Chúng ta có thể kiểm tra xem một chuỗi con có tồn tại trong một chuỗi hay không bằng cách sử dụng từ khóa `in` hoặc `not in`.
+
+_Ví dụ:_
+
+```python
+my_string = "Python is easy"
+print('P' in my_string) # True
+print('Q' in my_string) # False
+print ("Python" in my_string) # True
+print ("TEK4.VN" not in my_string) # True
+```
+
+**8. Làm thế nào để thay đổi hoặc xóa một chuỗi ký tự?**
+
+Một điều đặc biệt khác **trong Python đó là chuỗi ký tự có tính bất biến**. Điều này có nghĩa là các **phần tử của một chuỗi ký tự sẽ không thể thay đổi giá trị sau khi chúng đã được gán bởi các giá trị đã có**. Tuy nhiên, chúng ta có thể gán lại một chuỗi ký tự khác cho cùng một biến.
+
+_Ví dụ 1:_
+
+```python
+a = 'Python'
+print(a)
+a[0] = 'A' #Lỗi
+print(a)
+a = 'Javascript'
+print(a)
+```
+
+_Kết quả:_
+
+```
+Python
+Traceback (most recent call last):
+  File "main.py", line 3, in <module>
+    a[0] = 'A' // Lỗi
+NameError: name 'Lỗi' is not defined
+```
+
+Điều này có vẻ khá bất tiện phải không ạ?
+
+Tuy nhiên, trên thực tế, không có nhiều trường hợp mà chúng ta cần phải sửa đổi các phần tử trong một chuỗi. Nếu thực sự cần, bạn có thể dễ dàng làm được việc này với một mẹo nhỏ. Đó là tạo ra một bản sao của chuỗi mong muốn với các phần được cắt và ghép một cách phù hợp từ các chuỗi con. Có nhiều cách để làm điều này. Ta có thể xem xét ví dụ sau:
+
+_Ví dụ 2:_
+
+```python
+s="Học Python với tek4.vn"
+s_new = s[:4] + 'Java' + s[10:]
+print(s_new)
+```
+
+_Kết quả:_
+
+```
+Học Java với tek4.vn
+```
+
+Bạn có thể thấy rằng, bằng một cách hết sức đơn giản đó là tách các chuỗi con và ghép lại, chúng ta đã thu được một chuỗi mới theo đúng yêu cầu thay đổi.
+
+Chúng ta cũng có thể có một cách khác. Đó là sử dụng phương thức `replace()`. Đây là phương thức đặc biệt được hỗ trợ để thay đổi giá trị của chuỗi ký tự.
+
+_Ví dụ 3:_
+
+```python
+s = 'I love you'
+s = s.replace('love', 'like')
+print(s)
+```
+
+_Kết quả:_
+
+```
+I like you
+```
+
+Tương tự, chúng ta cũng **không thể xóa hoặc loại bỏ các ký tự khỏi một chuỗi**. Nhưng việc **xóa toàn bộ chuỗi ký tự hoàn toàn có thể thực hiện** được bằng cách sử dụng từ khóa `del`.
+
+_Ví dụ 4:_
+
+```python
+a = 'Python'
+print(a)
+#del a[0] # Lỗi
+del a # Hợp lệ
+print(a)
+```
+
+_Kết quả:_
+
+```
+Python
+Traceback (most recent call last):
+  File "e:/Learning/IT/Python/Bai2.py", line 5, in <module>
+    print(a)
+NameError: name 'a' is not defined
+```
+
+Ở đây, do chúng ta đã xoá biến `a`, do đó, khi thực hiện câu lệnh in ra biến `a` thì chương trình sẽ báo lỗi rằng `a` chưa được khai báo!!!!
+
+Một điều cần lưu ý nữa là: Tuy Python là tập hợp của các ký tự, nhưng chúng ta lại không thể khai báo một chuỗi ký tự bằng cách viết nó dưới dạng tập hợp như danh sách `['p','y','t','h','o','n']`. Nếu chúng ta khai báo như trên nó sẽ trở thành một dữ liệu dạng danh sách và không phải là chuỗi ký tự. Cách duy nhất để khai báo các chuỗi ký tự đó là sử dụng các dấu nháy đơn (`'`) hoặc nháy kép (`"`).
+
+**9. So sánh hai chuỗi ký tự**
+
+Kiểu chuỗi ký tự cũng tương tự như các kiểu dữ liệu cơ bản khác như số thực hay số nguyên. Chúng ta cũng có thể so sánh được giá trị của hai chuỗi ký tự.
+
+_Ví dụ 1:_
+
+```python
+s1="Python"
+s2="Python"
+s3="Java"
+s4="12345"
+s5="12346"
+
+print(s1==s2) # True
+print(s4<s5) # True
+print(s3>s1) # False
+```
+
+Các chuỗi ký tự sẽ được so sánh theo giá trị của từng ký tự tại từng vị trí một cách lần lượt. Nếu hai chuỗi có phần đầu bằng nhau thì chuỗi nào dài hơn sẽ lớn hơn, chuỗi nào có ký tự đầu tiên lớn hơn ký tự của chuỗi còng lại sẽ giống nhau. Cách thức so sánh này tương tự như khi chúng ta so sánh hai danh sách với nhau.
+
+_Ví dụ 2:_
+
+```python
+l1=[1,2,3,4]
+l2=[1,2,3,4]
+l3=[1,2,3,5]
+print(l1==l2) # True
+print(l3>l1) # True
+```
+
+
