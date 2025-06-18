@@ -1114,4 +1114,233 @@ print(l1==l2) # True
 print(l3>l1) # True
 ```
 
+### 2. Chuẩn hóa và tách, ghép chuỗi
+[:arrow_up: Mục lục](#mục-lục)
+
+**1. Chuẩn hóa chuỗi với phương thức `strip()`**
+
+Trong nhiều trường hợp, các chuỗi do người dùng nhập vào thường chứa các dấu cách hoặc dấu khoảng trắng thừa. Khi đó, chúng ta cần loại bỏ nó để kết quả khi xử lý được chính xác. Để loại bỏ các ký tự không mong muốn và chuẩn hóa chuỗi, chúng ta có thể sử dụng phương thức `strip()`.
+
+Phương thức `strip()` trả về một bản sao của chuỗi trong đó loại bỏ các ký tự (được chỉ định) ở đầu và cuối chuỗi. Cú pháp của phương thức strip():
+
+```
+string.strip([chars])
+```
+
+Khi đó các ký tự nằm trong đối số của `strip()` ở đầu và cuối của chuỗi ký tự string sẽ bị loại bỏ. Nếu đối số ký tự này không được chỉ định hoặc là **None** thì ký tự mặc định bị loại bỏ là dấu khoảng trắng.
+
+Một cách tương tự, khi chúng ta muốn chỉ định chỉ loại bỏ các ký tự ở phần đầu hoặc chỉ ở phần cuối chuỗi thì ta dùng các phương thức `lstrip()` và `rstrip()` tương ứng.
+
+- `lstrip([chars])`: Trả về một bản sao của chuỗi sau khi đã loại bỏ các ký tự dư thừa ở phần đầu chuỗi.
+- `rstrip([chars])`: Trả về một bản sao của chuỗi sau khi đã loại bỏ các ký tự dư thừa ở phần cuối chuỗi.
+
+_Ví dụ 1:_
+
+```python
+lang = "     Python     "
+x = lang.strip()
+print("Of all Programming Language", x, "is my favorite")
+x_left=lang.lstrip()
+print("Of all Programming Language",x_left,"is my favorite")
+x_right=lang.rstrip()
+print("Of all Programming Language",x_right,"is my favorite")
+```
+
+_Kết quả:_
+
+```
+Of all Programming Language Python is my favorite
+Of all Programming Language Python      is my favorite
+Of all Programming Language      Python is my favorite
+```
+
+Ta thấy, ở đoạn chương trình trên, do tham số của phương thức `strip()` không được chỉ định, vì vậy nó sẽ mặc định bỏ đi các dấu khoẳng trắng ở đầu và cuối của chuỗi. Tương tự như vậy với hai phương thức `lstrip()` và `rstrip()`.
+
+**2. Phương thức strip(), lstrip() và rstrip() với tham số**
+
+Nếu muốn chỉ định loại bỏ các ký tự khác dấu khoảng trắng, chúng ta có thể sử dụng đầy đủ tham số của phương thức `strip()`, `lstrip()` và `rstrip()` tương ứng.
+
+_Ví dụ 1:_
+
+```python
+lang = "######Python######"
+x = lang.strip('#')
+print("Of all Programming Language", x, "is my favorite")
+x_left=lang.lstrip('#')
+print("Of all Programming Language",x_left,"is my favorite")
+x_right=lang.rstrip('#')
+print("Of all Programming Language",x_right,"is my favorite")
+```
+
+_Kết quả:_
+
+```
+Of all Programming Language Python is my favorite
+Of all Programming Language Python###### is my favorite
+Of all Programming Language ######Python is my favorite
+```
+
+**Chú ý:** Do quy tắc loại bỏ ký tự thay vì chuỗi như vậy nên bạn cần rất lưu ý. Bởi phương thức `strip` sẽ loại bỏ cho đến khi nào không gặp ký tự trong đối số nữa thì mới dừng lại.
+
+_Ví dụ 2:_
+
+```python
+s = 'Arthur: three!'.lstrip('Arthur: ')
+```
+
+_Kết quả:_
+
+```
+ee!
+```
+
+**3. Tách chuỗi con với phương thức split()**
+
+Phương thức `split()` ngắt một chuỗi tại dấu phân tách được chỉ định và trả về một danh sách của các chuỗi con sau khi phân tách. Đây là một phương thức hết sức quan trọng trong thực tế. Chẳng hạn nó sẽ giúp cho các bạn tách các từ trong một câu, tách các đầu vào từ hàm `input()` để đưa vào một danh sách thực thi...và rất nhiều ứng dụng khác.
+
+_Ví dụ 1:_
+
+```python
+string = 'Python is a great programming language'
+print(string.split(' '))
+```
+
+_Kết quả:_
+
+```
+['Python', 'is', 'a', 'great', 'programming', 'language']
+```
+
+Ta thấy, trong ví dụ trên, các từ phân tách nhau bởi dấu khoảng trắng (`" "`). Do đó, khi sử dụng phương thức `split()`, ta đưa vào chỉ thị tham số là dấu khoảng trằng để tách các phần phân cách nhau bới các dấu này ra.
+
+Một cách tổng quát, để sử dụng phương thức `split()` chúng ta sử dụng cú pháp sau:
+
+```python
+str.split(separator, maxsplit)
+```
+
+Trong đó:
+
+- `separator` (là tham số tùy chọn có thể bỏ trống) - Chỉ định dấu hiệu phân tách, chẳng hạn như ví dụ trên là dấu cách. Khi bỏ trống tham số này, dấu hiệu phân tách sẽ được mặc định là dấu cách (`" "`).
+- `maxsplit` (cũng là tham số tùy chọn và có thể bỏ trống) - Chỉ định số lượng phân tách tối đa. Nếu tham số này không được chỉ định thì có nghĩa là việc phân tách sẽ không giới hạn.
+
+Phương thức `split()` trả về danh sách gồm các phần tử là các chuỗi con tách ra từ chuỗi ký tự gốc ban đầu.
+
+_Ví dụ 2:_
+
+```python
+text= 'I love Python'
+print(text.split()) #split with " " separator
+
+number_string = '1, 2, 3, 4, 5'
+print(number_string.split(', ')) #split with ', ' separator
+print(number_string.split(':')) #split with ':' separator
+```
+
+_Kết quả:_
+
+```
+['I', 'love', 'Python']
+['1', '2', '3', '4', '5']
+['1, 2, 3, 4, 5']
+```
+
+- Với phương thức `split()` đầu tiên, chúng ta để trống tham số `separator` do đó, nó sẽ có giá trị mặc định là dấu cách. Điều này làm cho nó tách câu văn bản của chúng ta ở trên thành các từ.
+- Còn ở câu `split()` thứ hai, chúng ta dùng đoạn ký tự phân cách là `', '`. Vì ở chuỗi đầu vào `number_string`, chúng ta nhận thấy rằng các số đang cách nhau bởi 1 dấu phẩy (`'`) và một khoảng trắng (` `).
+- Còn ở đoạn `split()` cuối cùng, chúng ta sử dụng dấu phân tách là dấu `:`, tuy nhiên dấu này không có trong chuỗi đầu vào `number_string` do đó, chuỗi này không bị tách gì mà vẫn giữ nguyên (nhưng bị chuyển sang kiểu danh sách gồm 1 phần tử chính là chuỗi gốc ban đầu).
+
+_Ví dụ 3:_
+
+```python
+number_string = '1, 2, 3, 4, 5'
+
+print(number_string.split(', ', 2)) # maxsplit: 2
+print(number_string.split(', ', 1)) # maxsplit: 1
+print(number_string.split(', ', 5)) # maxsplit: 5
+print(number_string.split(', ', 0)) # maxsplit: 0
+```
+
+_Kết quả:_
+
+```
+['1', '2', '3, 4, 5']
+['1', '2, 3, 4, 5']
+['1', '2', '3', '4', '5']
+['1, 2, 3, 4, 5']
+```
+
+Hãy lưu ý đến các dấu phẩy "`,`". Nó là các dấu phân cách giữa các phần tử trong danh sách. Khi `maxsplit=2` nghĩa là có 2 dấu phẩy và chúng ta tách chuỗi thành 1 danh sách con gồm 3 phần tử. Phần tử cuối cùng sẽ là tất cả những gì còn lại sau khi tách chuỗi từ đầu đến khi đạt đến vị trí giới hạn tối đa về `maxsplit`
+
+À, khi đó chúng ta sẽ có một phương thức khác tương tự đó là `rsplit()`, tức là tách phải. Tại sao lại không có tách trái. Uh,....thì tách trái là tách từ đầu chuỗi thì chính là `split()` rôi mà. Nên chúng ta chỉ có `rsplit` mà không có `lsplit` đâu.
+
+```python
+number_string = '1, 2, 3, 4, 5'
+
+print(number_string.rsplit(', ', 2)) # maxsplit: 2
+print(number_string.rsplit(', ', 1)) # maxsplit: 1
+print(number_string.rsplit(', ', 5)) # maxsplit: 5
+print(number_string.rsplit(', ', 0)) # maxsplit: 0
+print(number_string.rsplit(', ')) # no limit
+```
+
+```
+['1, 2, 3', '4', '5']
+['1, 2, 3, 4', '5']
+['1', '2', '3', '4', '5']
+['1, 2, 3, 4, 5']
+['1', '2', '3', '4', '5']
+```
+
+Ta thấy, mọi thứ vẫn tương tự như `split()`, ngoài việc chỉ số `maxsplit` sẽ được tính tách từ bên phải sang (tức là cuối chuỗi lên). Tức là chương trình sẽ tách hết từ cuối lên, sao cho đủ `maxsplit` thì phần còn lại sẽ là một phần tử của danh sách đầu ra.
+
+**4. Ghép chuỗi ký tự với phương thức `join()`**
+
+Phương thức `join()` trả về một chuỗi bằng cách nối tất cả các phần tử của một danh sách (sau này sẽ có các kiểu dữ liệu tập hợp tương tự khác như: tuple, set,...) phân tách với nhau bằng một chuỗi ký tự phân tách (`separator`).
+
+```
+string.join(iterable)
+```
+
+Trong đó:
+
+- `string` là chuỗi ký tự phân tách (`separator`) để phân tách các chuỗi con khi nối.
+- `interable` là đối tượng dữ liệu kiểu tập hợp có đánh chỉ số. Danh sách (list) mà chúng ta đã học ở chủ đề trước là một kiểu dữ liệu thuộc dạng này. Ngoài ra Python cũng hỗ trợ nhiều kiểu dữ liệu khác như vậy như tuple, set,...Nếu tập hợp này không có phần tử nào dạng chuỗi ký tự thì chương trình sẽ báo lỗi `TypeError`.
+
+_Ví dụ 1:_
+
+```python
+# .join() with lists
+numList = ['1', '2', '3', '4']
+separator = ', '
+print(separator.join(numList))
+# join elements of text with space
+text = ['Python', 'is', 'a', 'great', 'programming', 'language']
+print(' '.join(text))
+
+#join string
+s1 = 'abc'
+s2 = '123'
+# each element of s2 is separated by s1
+print('s1.join(s2):', s1.join(s2))
+# each element of s1 is separated by s2
+print('s2.join(s1):', s2.join(s1))
+```
+
+_Kết quả:_
+
+```
+1, 2, 3, 4
+Python is a great programming language
+s1.join(s2): 1abc2abc3
+s2.join(s1): a123b123c
+```
+
+Chúng ta thấy rằng:
+
+- Khi chúng ta `join()` các phần tử của danh sách thì chúng sẽ được nối vào thành một chuỗi ký tự với ký tự phân cách là chuỗi gọi phương thức `join()`.
+- Khi chúng ta `join()` chuỗi ký tự, thì hãy lưu ý rằng, mỗi phần tử của chuỗi sẽ được coi như 1 phần tử để nối, và chuỗi gọi là chuỗi phân tách.
+
+
+
+
 
