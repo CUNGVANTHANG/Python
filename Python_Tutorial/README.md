@@ -33,6 +33,13 @@
 - [3. Nâng cao với hàm print() trong Python](#3-nâng-cao-với-hàm-print-trong-python)
 </details>
 
+<details>
+  <summary>V. Vòng lặp trong Python</summary>
+
+- [1. Vòng lặp for trong Python](#1-vòng-lặp-for-trong-python)
+- [2. Vòng lặp while trong Python](#2-vòng-lặp-while-trong-python)
+</details>
+
 
 ## I. Biến và các kiểu dữ liệu cơ bản
 ### 1. In kết quả `print`
@@ -1343,6 +1350,160 @@ Chúng ta thấy rằng:
 - Khi chúng ta `join()` chuỗi ký tự, thì hãy lưu ý rằng, mỗi phần tử của chuỗi sẽ được coi như 1 phần tử để nối, và chuỗi gọi là chuỗi phân tách.
 
 
+## V. Vòng lặp trong Python
+[:arrow_up: Mục lục](#mục-lục)
+
+### 1. Vòng lặp for trong Python
+[:arrow_up: Mục lục](#mục-lục)
+
+Cú pháp:
+
+```python
+for i = 1 to 10
+    <Đoạn mã lặp>
+```
+
+hoặc
+
+```python
+for i in collection:
+   <Đoạn mã lặp>
+```
+
+_Ví dụ:_
+
+```python
+sinh_vien = ["Sinh viên trường Y", "Sinh viên trường Luật", "Sinh viên trường Kỹ thuật"]
+for sv in sinh_vien:
+   print(sv)
+```
+
+_Kết quả:_
+
+```
+Sinh viên trường Y
+Sinh viên trường Luật
+Sinh viên trường Kỹ thuật
+```
+
+#### Lặp qua các giá trị số nguyên với hàm range()
+
+Python hỗ trợ việc tạo một dãy số bằng cách sử dụng hàm `range()`. Nó cho phép chúng ta tạo ra các dãy số với giá trị nằm trong khoảng nhất định.
+
+Ví dụ như `range(10)` sẽ tạo ra một dãy các số từ 0 đến 9 (10 số). Chúng ta cũng có thể xác định ví trị bắt đầu, vị trí kết thúc và khoảng cách các giá trị bằng các tham số khác nhau của hàm:
+
+```python
+range(start, stop, step_size)
+```
+
+Trong đó:
+
+- `start` là giá trị bắt đầu của các phần tử. Khi tham số này được bỏ trống nó sẽ có giá trị mặc định là `0`.
+- `stop` là giá trị kết thúc của các phần tử. Tuy nhiên, cũng giống như phép cắt danh sách hay cắt chuỗi, chúng ta sẽ không bao hàm phần tử stop trong kết quả được sinh ra (Giữ đầu bỏ cuối).
+- `step_size` mặc định là 1 nếu không được truyền giá trị. Đây là bước nhảy hay khoảng cách giữa các giá trị liên tiếp, ví dụ nếu `stepsize=1` (mặc định) chúng ta sẽ có các giá trị `0,1,2,3,4,....9` còn `stepsize=2` thì chúng ta sẽ có các giá trị `0,2,4,6,8`.
+
+_Ví dụ 1:_
+
+```python
+for x in range(4):
+  print(x)
+```
+
+_Kết quả:_
+
+```
+0
+1
+2
+3
+```
+
+_Chú ý:_
+
+Chú ý rằng `range(4)` không phải là các giá trị từ `0` đến `4` mà là các giá trị từ `0` đến `3` (trừ  đi `4` không tính). - **Quy tắc: Giữ đầu bỏ cuối!**
+
+_Ví dụ 2:_
+
+```python
+for x in range(1, 4):
+  print(x)
+```
+
+_Kết quả:_
+
+```
+1
+2
+3
+```
+
+_Ví dụ 3:_
+
+```python
+for x in range(2, 20, 3):
+  print(x)
+```
+
+_Kết quả:_
+
+```
+2
+5
+8
+11
+14
+17
+```
+
+Các giá trị sẽ tăng thêm `3` sau mỗi lần lặp bằng với kích thước `step_size` và cũng không chứa giá trị cuối cùng (end).
+
+#### Vòng lặp for sử dụng với câu lệnh else
+
+Vòng lặp `for` cũng có thể có một khối `else` tùy chọn. Đoạn mã trong khối `else` sẽ được thực thi nếu các phần tử trong chuỗi được sử dụng trong vòng lặp for không còn.
+
+_Ví dụ:_
+
+```python
+for i in range(0,5):
+   print(i)
+else:
+   print("Không còn phần tử")
+```
+
+_Kết quả:_
+
+```
+0
+1
+2
+3
+4
+Không còn phần tử
+```
+
+
+Tại đây, vòng lặp `for` sẽ in ra các giá trị trong khoảng từ `0` đến `4` cho đến khi vòng lặp kết thúc. Khi vòng lặp `for` kết thúc, nó thực thi đoạn mã trong câu lệnh `else`.
+
+####  Vòng lặp for lồng nhau
+
+_Ví dụ:_
+
+```python
+for i in range(3):
+   for j in range(2):
+      print(i,j)
+```
+
+_Kết quả:_
+
+```
+0 0
+0 1
+1 0
+1 1
+2 0
+2 1
+```
 
 
 
