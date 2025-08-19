@@ -41,6 +41,36 @@
 - [3. Vòng lặp while trong Python](#3-vòng-lặp-while-trong-python)
 </details>
 
+<details>
+  <summary>VI. Hàm trong Python</summary>
+
+</details>
+
+<details>
+  <summary>VII. Tuple, set và dictionary trong Python</summary>
+
+</details>
+
+<details>
+  <summary>VIII. Lập trình hướng đối tượng trong Python</summary>
+
+</details>
+
+<details>
+  <summary>IX. Module và Package trong Python</summary>
+
+</details>
+
+<details>
+  <summary>X. Thao tác tệp tin trong Python</summary>
+
+</details>
+
+<details>
+  <summary>XI. Xử lý lỗi và ngoại lệ trong Python</summary>
+
+</details>
+
 
 ## I. Biến và các kiểu dữ liệu cơ bản
 ### 1. In kết quả `print`
