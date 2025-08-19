@@ -37,7 +37,8 @@
   <summary>V. Vòng lặp trong Python</summary>
 
 - [1. Vòng lặp for trong Python](#1-vòng-lặp-for-trong-python)
-- [2. Vòng lặp while trong Python](#2-vòng-lặp-while-trong-python)
+- [2. Câu lệnh break, continue và pass trong Python](#2-câu-lệnh-break-continue-và-pass-trong-python)
+- [3. Vòng lặp while trong Python](#3-vòng-lặp-while-trong-python)
 </details>
 
 
@@ -1504,6 +1505,153 @@ _Kết quả:_
 2 0
 2 1
 ```
+
+### 2. Câu lệnh break, continue và pass trong Python
+[:arrow_up: Mục lục](#mục-lục)
+
+#### Câu lệnh break trong Python
+
+Câu lệnh `break` sẽ kết thúc vòng lặp chứa nó. Luồng thực thi của chương trình sẽ chuyển đến câu lệnh ngay sau phần thân của vòng lặp. Nếu câu lệnh break nằm trong một vòng lặp lồng nhau (vòng lặp bên trong một vòng lặp khác), câu lệnh `break` sẽ kết thúc vòng lặp nằm bên trong. Hoặc nói chung là vòng lặp gần nhất chứa nó.
+
+_Ví dụ:_
+
+```python
+for i in range (5):
+   if i == 3:
+      break
+   print("Python")
+```
+
+_Kết quả:_
+
+```
+Python
+Python
+Python
+```
+
+#### Câu lệnh continue trong Python
+
+Câu lệnh `continue` được sử dụng để bỏ qua phần còn lại của đoạn mã bên trong vòng lặp trong lần lặp hiện tại. Vòng lặp sẽ không kết thúc nhưng tiếp tục với lần lặp tiếp theo mà bỏ qua các đoạn lệnh lặp khi gặp điều kiện được chỉ định.
+
+_Ví dụ:_
+
+```python
+for i in range(5):
+    if i==3:
+        continue
+    print(i)
+```
+
+_Kết quả:_
+
+```
+0
+1
+2
+4
+```
+
+#### Câu lệnh pass
+
+Trong lập trình Python, câu lệnh `pass` là câu lệnh đặc biệt chỉ định cho việc không thực thi nhiệm vụ nào cả. Sự khác biệt giữa một chú thích và một câu lệnh pass trong Python là khi trình thông dịch bỏ qua hoàn toàn một chú thích, nhưng sẽ vẫn dịch câu lệnh pass. Tuy nhiên, sẽ không có gì xảy ra khi câu lệnh `pass` được thực thi. Nghe khá vô dụng phải không ạ.
+
+Trên thực tế, chúng ta thường sử dụng nó như một cách đễ giữ chỗ cho các đoạn mã chưa được triển khai hoàn chỉnh.
+
+Giả sử chúng ta có một vòng lặp hoặc một hàm chưa được triển khai, nhưng chúng ta muốn triển khai nó sau này nhưng không muốn comment. Khi đó, chúng ta sử dụng câu lệnh `pass` để tạo một phần thân mà không làm gì cả. Và sau này, chúng ta nhìn thấy nó là sẽ biết nên bổ sung ở vị trí này.
+
+Ví dụ như trong các bài viết về lập trình Python, ta sẽ thực hiện một số đoạn mã demo nhưng không triển khai cho nó, ta có thể sử dụng câu lệnh pass này.
+
+Vì câu lệnh `pass` không thực hiện bất cứ điều gì, nên ta có thể sử dụng nó để đáp ứng một số cấu trúc yêu cầu đòi hỏi phải ít nhất có một câu lệnh trong đoạn mã nào đó.
+
+_Ví dụ:_
+
+```python
+for i in range(5):
+   pass
+```
+
+Trong ví dụ này, ta sẽ không triển khai nội dung bên trong vòng lặp for. Do đó, trình biên dịch sẽ thông báo lỗi. Để tránh thông báo lỗi này, ta sẽ sử dụng câu lệnh `pass` trong vòng lặp for như sau.
+
+### 3. Vòng lặp while trong Python
+[:arrow_up: Mục lục](#mục-lục)
+
+Cú pháp:
+
+```python
+while condition:
+   <Đoạn mã lặp lại> # Lưu ý khoảng cách thụt dòng!!!
+```
+
+_Ví dụ:_
+
+```python
+a = 5
+while a > 0:
+   print(a)
+   a = a -1
+```
+
+_Kết quả:_
+
+```
+5
+4
+3
+2
+1
+```
+
+#### Vòng lặp while được sử dụng với else
+
+_Ví dụ:_
+
+```python
+a = 5
+while a > 0:
+   print("Python")
+   a = a - 1
+else:
+   print("Kết thúc vòng lặp")
+```
+
+_Kết quả:_
+
+```
+Python
+Python
+Python
+Python
+Python
+Kết thúc vòng lặp
+```
+
+#### Vòng lặp while lồng nhau
+
+Ngoài ra, tương tự với vòng lặp for, ta cũng có thể lồng các vòng lặp while bên trong vòng lặp while khác. Tuy nhiên, việc sử dụng các vòng lặp while sẽ gây ra sự phức tạp cho đoạn mã trong chương trình, do đó, bạn nên cố gắng hạn chế sử dụng các vòng lặp while lồng nhau như vậy ít nhất có thể.
+
+_Ví dụ:_
+
+```
+i = 1
+while i <= 4 :
+    j = 0
+    while  j <= 3 :
+        print(i*j, end=" ")
+        j += 1
+    print()
+    i += 1
+```
+
+_Kết quả:_
+
+```
+0 1 2 3 
+0 2 4 6 
+0 3 6 9 
+0 4 8 12 
+```
+
 
 
 
